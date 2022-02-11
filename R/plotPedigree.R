@@ -13,12 +13,12 @@
 #' @return Pedigree plot saved as PNG files.
 #'
 #' @export
-#'
-plot.pedigreeGT <- function(variant.list,
+plotPedigree <- function(variant.list,
                             pedigree.data,
                             includeIDs,
                             gene.name = NULL,
                             save.path = NULL,
+                            savePNG = FALSE,
                             frequency.col = c("ExAC_All", "X1000G_ALL"),
                             label = "test") {
   if (!is.null(save.path)) {
@@ -68,7 +68,9 @@ plot.pedigreeGT <- function(variant.list,
                   status = pedpre_GT$status,
                   as.matrix(data.frame(Affected = pedpre_GT$affected, DNA = pedpre_GT$avail)))
   strid <- paste(pedpre_GT$id, pedpre_GT$GT, sep = "\n")
-  png(paste0(path_name, "/", variant_pos, ".png"), width = 786, height = 551)#, width = 1350, height = 580
+  if (savePNG) {
+    png(paste0(path_name, "/", variant_pos, ".png"), width = 786, height = 551)#, width = 1350, height = 580
+  }
   plot.pedigree(ped, id = strid, mar = c(12, 2.1, 2.1, 2.1))
 
   mtext(text = paste0(variant_v, "\n",
@@ -80,7 +82,10 @@ plot.pedigreeGT <- function(variant.list,
                         "AAchange:", variant_AAchange),
                         side = 1, at = 0, adj=0)
   kinship2::pedigree.legend(ped, location = "bottomright", radius = .1 )
-  dev.off()
+  if (savePNG) {
+    dev.off()
+
+  }
 
   }
 

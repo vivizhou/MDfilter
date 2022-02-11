@@ -15,7 +15,7 @@
 #' @return A data frame of cleaned annotated data.
 #'
 #' @export
-clean.raw.data <- function(dataName,
+cleanData <- function(dataName,
                            includeIDs = NULL,
                            excludeIDs = NULL,
                            removeMultiallelicSites = FALSE,

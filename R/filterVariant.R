@@ -21,11 +21,10 @@
 #' @param label Specify the label of the saved file.
 #' @param save.genelist TRUE=Save the filtered gene list into a txt file.
 
-#' @return A data frame of variants after filtering.
+#' @return A data frame of cleaned annotated data.
 #'
 #' @export
-
-filter.variant <- function(data.name,
+filterVariant <- function(data.name,
                            affected.id = NULL,
                            unaffected.id = NULL,
                            inheritance.pattern = NULL,
