@@ -9,6 +9,7 @@ The package provides a few functions for family-based genetic variant filtering 
 Install the package:
 ```r
 devtools::install_github("vivizhou/MDfilter")
+library(MDfilter)
 ?importTXT
 ?cleanData
 ?filterVariant
