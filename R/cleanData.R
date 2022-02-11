@@ -16,17 +16,16 @@
 #'
 #' @export
 cleanData <- function(dataName,
-                           includeIDs = NULL,
-                           excludeIDs = NULL,
-                           removeMultiallelicSites = FALSE,
-                           remove.nocall.pct = 0.2, #percentage of samples with no call
-                           QD.threshold = 5,
-                           saveRData = FALSE,
-                           savePath = NULL,
-                           label = NULL) {
+                      includeIDs = NULL,
+                      excludeIDs = NULL,
+                      removeMultiallelicSites = FALSE,
+                      remove.nocall.pct = 0.2, #percentage of samples with no call
+                      QD.threshold = 5,
+                      saveRData = FALSE,
+                      savePath = NULL,
+                      label = NULL) {
 
   #get subset of the data
-  require("tidyverse")
 
   if (!is.null(excludeIDs)) {
     data_sub <- dataName[, ! colnames(dataName) %in% excludeIDs]
@@ -79,11 +78,11 @@ cleanData <- function(dataName,
 
   data_sub_3$QD_fromINFO <- sapply(data_sub_1$INFO, FUN=function(x) {
     string_todetect<- x
-    length_string <- str_length(string_todetect)
-    QD_INFO_index <- str_locate( string_todetect, "QD")
-    endpoint_index <- QD_INFO_index[1] - 1 +  str_locate(str_sub(string_todetect, start=QD_INFO_index[1], end = length_string), ";")[1] -1
+    length_string <- stringr::str_length(string_todetect)
+    QD_INFO_index <- stringr::str_locate( string_todetect, "QD")
+    endpoint_index <- QD_INFO_index[1] - 1 +  stringr::str_locate(stringr::str_sub(string_todetect, start=QD_INFO_index[1], end = length_string), ";")[1] -1
     startpoint_index <- QD_INFO_index[1] + 3
-    QD_number <- str_sub(string_todetect, start = startpoint_index, end = endpoint_index)
+    QD_number <- stringr::str_sub(string_todetect, start = startpoint_index, end = endpoint_index)
     return(QD_number)
   })
   data_sub_3$QD_fromINFO <- as.numeric(data_sub_3$QD_fromINFO)

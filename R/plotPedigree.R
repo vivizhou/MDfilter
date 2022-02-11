@@ -39,7 +39,7 @@ plotPedigree <- function(variant.list,
 
   for (i in (1:nrow(variant.list))) {
   variant <- variant.list[i,]
-  variant_variant <- variant$Variant
+  variant_v <- variant$Variant
   variant_pos <- paste0(variant$Chr,"_", variant$Start)
   variant_mut <- paste0("Ref: ",variant$Ref, "; Alt: ", variant$Alt)
   variant_gene <- paste0(variant$Gene.refgene)
