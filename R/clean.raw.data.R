@@ -9,7 +9,7 @@
 #' @param remove.nocall.pct Variants with percentage of no calls larger than this value will be removed.
 #' @param QD.threshold Variants with QD smaller than this value will be removed.
 #' @param saveRData TRUE=Save the returned data frame into an RData file.
-#' @param savePath savePath should specified if saveRData is TRUE;otherwise the data will be saved at the working directory.
+#' @param savePath Specify save path. If not specified the data will be saved at the working directory.
 #' @param label Specify the label of the saved file.
 
 #' @return A data frame of cleaned annotated data.

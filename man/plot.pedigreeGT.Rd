@@ -4,7 +4,7 @@
 \alias{plot.pedigreeGT}
 \title{Generate pedigree plots}
 \usage{
-pedigreeGT(
+\method{plot}{pedigreeGT}(
   variant.list,
   pedigree.data,
   includeIDs,
@@ -23,14 +23,14 @@ pedigreeGT(
 
 \item{gene.name}{specify the list of genes in which the variants are to be visualized in the pedigree plots}
 
-\item{save.path}{save.path should specified if saveRData is TRUE;otherwise the data will be saved at the working directory.}
+\item{save.path}{Specify save path. If not specified the data will be saved at the working directory.}
 
 \item{frequency.col}{Column names of the frequencies to be visualized in pedigree plot. For example: frequency.col = c("ExAC_All", "X1000G_ALL", "ExAC_NFE", "X1000G_EUR")}
 
 \item{label}{Specify the label of the folder to save the files.}
 }
 \value{
-A data frame of cleaned annotated data.
+Pedigree plot saved as PNG files.
 }
 \description{
 This function generates pedigree plots to visualize variant information and individual genotypes.

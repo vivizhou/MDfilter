@@ -7,7 +7,7 @@
 #' @param gene.name specify the list of genes in which the variants are to be visualized in the pedigree plots
 #' @param pedigree.data Pedigree data load from excel sheet. check ?kinship2::pedigree() for correct format.
 #' @param frequency.col Column names of the frequencies to be visualized in pedigree plot. For example: frequency.col = c("ExAC_All", "X1000G_ALL", "ExAC_NFE", "X1000G_EUR")
-#' @param save.path save.path should specified if saveRData is TRUE;otherwise the data will be saved at the working directory.
+#' @param save.path Specify save path. If not specified the data will be saved at the working directory.
 #' @param label Specify the label of the folder to save the files.
 
 #' @return Pedigree plot saved as PNG files.

@@ -4,7 +4,7 @@
 \alias{filter.variant}
 \title{Variant filtering}
 \usage{
-\method{filter}{variant}(
+filter.variant(
   data.name,
   affected.id = NULL,
   unaffected.id = NULL,
@@ -54,7 +54,7 @@
 
 \item{CADD.threshold}{The threshold of the CADD score used for filtering}
 
-\item{save.path}{savePath should specified if saveRData is TRUE;otherwise the data will be saved at the working directory.}
+\item{save.path}{Specify save path. If not specified the data will be saved at the working directory.}
 
 \item{save.txt}{TRUE=Save the returned data frame into a txt file.}
 

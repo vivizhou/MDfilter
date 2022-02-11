@@ -31,7 +31,7 @@ clean.raw.data(
 
 \item{saveRData}{TRUE=Save the returned data frame into an RData file.}
 
-\item{savePath}{savePath should specified if saveRData is TRUE;otherwise the data will be saved at the working directory.}
+\item{savePath}{Specify save path. If not specified the data will be saved at the working directory.}
 
 \item{label}{Specify the label of the saved file.}
 }
