@@ -9,10 +9,10 @@ The package provides a few functions for family-based genetic variant filtering 
 Install the package:
 ```r
 devtools::install_github("vivizhou/MDfilter")
-?import.txt.file
-?clean.raw.data
-?filter.variant
-?plot.pedigreeGT
+?importTXT
+?cleanData
+?filterVariant
+?plotPedigree
 ```
 
 
