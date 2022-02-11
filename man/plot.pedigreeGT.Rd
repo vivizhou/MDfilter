@@ -4,7 +4,7 @@
 \alias{plot.pedigreeGT}
 \title{Generate pedigree plots}
 \usage{
-\method{plot}{pedigreeGT}(
+pedigreeGT(
   variant.list,
   pedigree.data,
   includeIDs,
