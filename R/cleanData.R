@@ -58,7 +58,7 @@ cleanData <- function(dataName,
     col_to_extract <- subject_id[i]
     col_GT <- paste0(subject_id[i], "_GT")
     data_sub_1[,col_GT] <- sapply(data_sub_1[,col_to_extract],FUN = function(x) {
-      str_sub(x, start = 1, end = 3)
+      stringr::str_sub(x, start = 1, end = 3)
     })
   }
 
