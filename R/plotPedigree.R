@@ -71,7 +71,7 @@ plotPedigree <- function(variant.list,
   if (savePNG) {
     png(paste0(path_name, "/", variant_pos, ".png"), width = 786, height = 551)#, width = 1350, height = 580
   }
-  plot.pedigree(ped, id = strid, mar = c(12, 2.1, 2.1, 2.1))
+  kinship2::plot.pedigree(ped, id = strid, mar = c(12, 2.1, 2.1, 2.1))
 
   mtext(text = paste0(variant_v, "\n",
                         variant_pos, ";", variant_mut, "\n",
