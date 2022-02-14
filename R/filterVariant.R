@@ -212,7 +212,7 @@ filterVariant <- function(data.name,
 
 
       if (!is.null(affected.id)) {
-        cat("variants are 0/1 or 1/1 in affected members including ", paste0(affectedIDs, collapse = ","),"\n")
+        cat("variants are 0/1 or 1/1 in affected members including ", paste0(affected.id, collapse = ","),"\n")
         filterlog <- rbind(filterlog, paste0("variants are 0/1 or 1/1 in affected members including ",paste0(affected.id, collapse = ",")))
 
         subdata <- subdata[apply(subdata[,paste0(affected.id, "_GT"), drop = FALSE],1, FUN= function(row) all(row %in% c("0/1", "1/1"))),] #heterozygous so 1/1 removed
