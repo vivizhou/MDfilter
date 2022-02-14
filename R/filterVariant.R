@@ -72,8 +72,8 @@ filterVariant <- function(data.name,
     #require data
     data(gene_coordinates)
 
-    cat("Candidate genes selected:\n", paste0(gene.name," "), " \n")
-    filterlog <- rbind(filterlog, paste0("Candidate genes selected:\n", paste0(gene.name," ")))
+    cat("Candidate genes selected:\n", paste0(gene.name, collapse = ","), " \n")
+    filterlog <- rbind(filterlog, paste0("Candidate genes selected:\n", paste0(gene.name, collapse = ",")))
 
     #Obtain the gene coordinates of the candidate genes from the "gene_coordinates" file
 
