@@ -77,7 +77,7 @@ filterVariant <- function(data.name,
 
     #Obtain the gene coordinates of the candidate genes from the "gene_coordinates" file
 
-    gene_coords <- gene_coordinates[grep(paste0(paste0("gene_name ", gene.name, ";"), collapse = "|"), ignore.case = TRUE, gene_annotation$V9),]
+    gene_coords <- gene_coordinates[grep(paste0(paste0("gene_name ", gene.name, ";"), collapse = "|"), ignore.case = TRUE, gene_coordinates$V9),]
     gene_coords <- unique(gene_coords[,c("V1", "V4", "V5")])
 
     #Find the variants with the coordinates
@@ -239,19 +239,6 @@ filterVariant <- function(data.name,
     cat("Number of exonic, splicing and UTR variants: " ,n_func_include_UTR, "\n")
     filterlog <- rbind(filterlog, paste0("Number of exonic, splicing and UTR variants: " ,n_func_include_UTR))
 
-    # Include/exclude UTRs
-    if(include.UTRs){
-      cat("UTRs are included.\n")
-      filterlog <- rbind(filterlog, paste0("UTRs are included."))
-
-    } else {
-      Func_include <- c("exonic", "exonic;splicing", "splicing", "")
-      subdata <- subdata[subdata$Func.refgene %in% Func_include,]
-      n_functional <- nrow(subdata)
-      cat("Number of variants after removing UTRs: ", n_functional, "\n")
-      filterlog <- rbind(filterlog, paste0("Number of variants after removing UTRs: ", n_functional))
-
-    }
 
     # Include/exclude synonymous
     if (include.synonymous) {
@@ -266,6 +253,21 @@ filterVariant <- function(data.name,
       filterlog <- rbind(filterlog, paste0("Number of variants after removing non-splicing synonymous variants: ", n_synonymous_rmd))
 
     }
+
+    # Include/exclude UTRs
+    if(include.UTRs){
+      cat("UTRs are included.\n")
+      filterlog <- rbind(filterlog, paste0("UTRs are included."))
+
+    } else {
+      Func_include <- c("exonic", "exonic;splicing", "splicing", "")
+      subdata <- subdata[subdata$Func.refgene %in% Func_include,]
+      n_functional <- nrow(subdata)
+      cat("Number of variants after removing UTRs: ", n_functional, "\n")
+      filterlog <- rbind(filterlog, paste0("Number of variants after removing UTRs: ", n_functional))
+
+    }
+
     if(include.nonframeshift) {
       cat("Nonframeshift indels if present are kept.\n")
       filterlog <- rbind(filterlog, paste0("Nonframeshift indels if present are kept."))
