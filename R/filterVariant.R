@@ -44,7 +44,7 @@ filterVariant <- function(data.name,
                            save.genelist = FALSE
                            ) {
   subdata <- data.name
-  if (any(is.na(affected.id) | is.na(unaffected.id))) {
+  if (any(is.na(affected.id)) | any(is.na(unaffected.id))) {
     stop("Please do not include missing values in affected/unaffected IDs.")
   }
 
